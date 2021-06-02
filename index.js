@@ -21,7 +21,7 @@ app.use(express.json());
 async function printPDF(content) {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
-    await page.setContent(content, {waitUntil: 'load', timeout: 10000});
+    await page.setContent(content, {waitUntil: 'networkidle0'});
     const pdf = await page.pdf({ format: 'A4', margin: {
         top: "1.5cm",
         right: "1.5cm",
