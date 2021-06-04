@@ -16,7 +16,7 @@ const puppeteer = require('puppeteer');
 // }
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({limit: '50mb'}));
 
 async function printPDF(content) {
     const browser = await puppeteer.launch({ headless: true });
